@@ -1,0 +1,6 @@
+<h2>{{coin.name | uppercase}} Details</h2>
+<div><span>id: </span>{{coin.id}}</div>
+<div>
+  <label for="name">Coin name: </label>
+  <input id="name" [(ngModel)]="coin.name" placeholder="name">
+</div>
