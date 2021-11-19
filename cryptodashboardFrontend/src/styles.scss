@@ -1,1 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+$sizes: 40px, 50px, 80px;
+
+@each $size in $sizes {
+  .icon-#{$size} {
+    font-size: $size;
+    height: $size;
+    width: $size;
+  }
+}

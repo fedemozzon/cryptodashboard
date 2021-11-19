@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Coin } from '../coin';
+import { CoinService } from '../coin.service';
+import { Coin } from '../openapi/model/coin'; 
 
 @Component({
   selector: 'app-coins',
@@ -7,15 +8,14 @@ import { Coin } from '../coin';
   styleUrls: ['./coins.component.scss']
 })
 export class CoinsComponent implements OnInit {
-
-  coin:Coin = {
-    id: 1,
-    name: 'Bitcoin'
-  }
-
-  constructor() { }
+  coins:Coin[] = []
+  dataSource:Coin[] = []
+  displayedColumns: string[] = ['name', 'acronym', 'description', 'linkToWikipedia'];
+  constructor(private service: CoinService) { }
 
   ngOnInit(): void {
+    this.service.getCoinList().subscribe((coins )=> this.coins = coins);
+    this.dataSource = this.coins
   }
 
 }

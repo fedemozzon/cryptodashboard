@@ -21,6 +21,10 @@ export class Quotation extends Entity {
   })
   exchangeQuotation: string;
 
+  @property({
+    type: 'number',
+  })
+  coinId?: number;
 
   constructor(data?: Partial<Quotation>) {
     super(data);

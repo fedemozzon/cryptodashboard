@@ -1,4 +1,5 @@
-import {Entity, model, property} from '@loopback/repository';
+import {Entity, model, property, hasMany} from '@loopback/repository';
+import {Quotation} from './quotation.model';
 
 @model()
 export class Coin extends Entity {
@@ -33,6 +34,8 @@ export class Coin extends Entity {
   })
   linkToWikipedia: string;
 
+  @hasMany(() => Quotation)
+  quotations: Quotation[];
 
   constructor(data?: Partial<Coin>) {
     super(data);
