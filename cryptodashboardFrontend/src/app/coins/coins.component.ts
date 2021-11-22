@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CoinService } from '../coin.service';
 import { Coin } from '../openapi/model/coin'; 
 
@@ -17,5 +18,6 @@ export class CoinsComponent implements OnInit {
     this.service.getCoinList().subscribe((coins )=> this.coins = coins);
     this.dataSource = this.coins
   }
+
 
 }

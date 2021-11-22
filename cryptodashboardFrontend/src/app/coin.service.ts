@@ -17,8 +17,12 @@ export class CoinService {
 
   addCoin(coin:Coin){
     return this.http.coinControllerControllerCreate(coin)
-
   }
+
+  // getCoin(coin:Coin){
+  //   return this.http.coinControllerControllerFindById(coin.idCoin)
+  // }
+
 
 }
 

@@ -1,0 +1,20 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="newCoinForm"> 
+
+    <div class="form-group">
+       <label for="coinName">Coin name</label>
+       <input type="text" required formControlName="coinName" class="form-control">
+       <label for="coinDescription">Coin description</label>
+       <input type="text" required formControlName="coinDescription" class="form-control">
+       <label for="coinAcronym">Coin acronym</label>
+       <input type="text" required formControlName="coinAcronym" class="form-control">
+       <label for="coinLinkToWikipedia">Coin link to Wikipedia</label>
+       <input type="text" required formControlName="coinLinkToWikipedia" class="form-control">
+   </div>
+ 
+   <div class="form-group">
+       <button class="btn btn-primary" type="submit">Save</button>    
+       <a routerLink="/coins" class="btn btn-link">Cancel</a>
+   </div>
+
+</form>
+
