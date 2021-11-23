@@ -11,11 +11,12 @@
  */
 
 
-export interface Coin { 
-    nameCoin: string;
-    idCoin?: string;
-    acronym: string;
-    descriptionCoin: string;
-    linkToWikipedia: string;
+/**
+ * (tsType: Partial<Quotation>, schemaOptions: { partial: true })
+ */
+export interface QuotationPartial { 
+    idQuotation?: string;
+    price?: number;
+    date?: string;
 }
 

@@ -11,11 +11,12 @@
  */
 
 
-export interface Coin { 
-    nameCoin: string;
-    idCoin?: string;
-    acronym: string;
-    descriptionCoin: string;
-    linkToWikipedia: string;
+export interface QuotationFilter1 { 
+    offset?: number;
+    limit?: number;
+    skip?: number;
+    order?: string | Array<string>;
+    where?: { [key: string]: object; };
+    fields?: object | Set<string>;
 }
 

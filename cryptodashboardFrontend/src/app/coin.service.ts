@@ -19,9 +19,9 @@ export class CoinService {
     return this.http.coinControllerControllerCreate(coin)
   }
 
-  // getCoin(coin:Coin){
-  //   return this.http.coinControllerControllerFindById(coin.idCoin)
-  // }
+  getCoin(coin:Coin){
+    return this.http.coinControllerControllerFindById(Number(coin.idCoin))
+  }
 
 
 }

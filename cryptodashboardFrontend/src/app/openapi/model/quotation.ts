@@ -15,6 +15,6 @@ export interface Quotation {
     idQuotation?: number;
     priceQuotation: number;
     exchangeQuotation: string;
-    coinId?: number;
+    coinId?: string;
 }
 

@@ -9,13 +9,11 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { CoinScopeFilter } from './coinScopeFilter';
 
 
-export interface Coin { 
-    nameCoin: string;
-    idCoin?: string;
-    acronym: string;
-    descriptionCoin: string;
-    linkToWikipedia: string;
+export interface CoinIncludeFilterItems { 
+    relation?: string;
+    scope?: CoinScopeFilter;
 }
 

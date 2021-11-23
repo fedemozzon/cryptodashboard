@@ -11,11 +11,7 @@
  */
 
 
-export interface Coin { 
-    nameCoin: string;
-    idCoin?: string;
-    acronym: string;
-    descriptionCoin: string;
-    linkToWikipedia: string;
+export interface LoopbackCount { 
+    count?: number;
 }
 

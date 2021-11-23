@@ -10,11 +10,11 @@ export class Coin extends Entity {
   nameCoin: string;
 
   @property({
-    type: 'number',
+    type: 'string',
     id: true,
     generated: true,
   })
-  idCoin?: number;
+  idCoin?: string;
 
   @property({
     type: 'string',

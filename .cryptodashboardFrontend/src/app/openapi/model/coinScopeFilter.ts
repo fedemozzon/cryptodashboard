@@ -11,11 +11,13 @@
  */
 
 
-export interface Coin { 
-    nameCoin: string;
-    idCoin?: string;
-    acronym: string;
-    descriptionCoin: string;
-    linkToWikipedia: string;
+export interface CoinScopeFilter { 
+    offset?: number;
+    limit?: number;
+    skip?: number;
+    order?: string | Array<string>;
+    where?: { [key: string]: object; };
+    fields?: any | Set<string>;
+    include?: Array<{ [key: string]: object; }>;
 }
 

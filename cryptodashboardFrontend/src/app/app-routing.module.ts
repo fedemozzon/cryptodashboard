@@ -5,9 +5,10 @@ import { CoinComponent } from './coin/coin.component';
 import { CoinsComponent } from './coins/coins.component';
 
 const routes: Routes = [
+  { path: '', component: CoinsComponent },
   { path: 'coins', component: CoinsComponent },
   { path: 'addCoins', component: AddCoinComponent },
-  { path: 'coins/:name', component: CoinComponent },
+  { path: 'coins/:idx', component: CoinComponent },
   { path: 'coins/modify/:idx', component: AddCoinComponent }
 ];
 

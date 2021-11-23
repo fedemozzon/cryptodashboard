@@ -1,3 +1,3 @@
 export * from './ping.controller';
 export * from './coin-controller.controller';
-export * from './coin-quotation.controller';
+export * from './quotation-controller.controller';

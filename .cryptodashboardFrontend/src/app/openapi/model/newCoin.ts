@@ -11,9 +11,11 @@
  */
 
 
-export interface Coin { 
+/**
+ * (tsType: Omit<Coin, \'idCoin\'>, schemaOptions: { title: \'NewCoin\', exclude: [ \'idCoin\' ] })
+ */
+export interface NewCoin { 
     nameCoin: string;
-    idCoin?: string;
     acronym: string;
     descriptionCoin: string;
     linkToWikipedia: string;

@@ -11,11 +11,11 @@
  */
 
 
-export interface Coin { 
-    nameCoin: string;
-    idCoin?: string;
-    acronym: string;
-    descriptionCoin: string;
-    linkToWikipedia: string;
+/**
+ * (tsType: Omit<Quotation, \'idQuotation\'>, schemaOptions: { title: \'NewQuotation\', exclude: [ \'idQuotation\' ] })
+ */
+export interface NewQuotation { 
+    price: number;
+    date: string;
 }
 

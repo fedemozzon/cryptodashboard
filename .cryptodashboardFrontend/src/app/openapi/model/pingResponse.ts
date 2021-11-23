@@ -11,11 +11,10 @@
  */
 
 
-export interface Coin { 
-    nameCoin: string;
-    idCoin?: string;
-    acronym: string;
-    descriptionCoin: string;
-    linkToWikipedia: string;
+export interface PingResponse { 
+    greeting?: string;
+    date?: string;
+    url?: string;
+    headers?: { [key: string]: object; };
 }
 

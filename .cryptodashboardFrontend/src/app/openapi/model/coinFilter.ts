@@ -9,13 +9,15 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { CoinIncludeFilterItems } from './coinIncludeFilterItems';
 
 
-export interface Coin { 
-    nameCoin: string;
-    idCoin?: string;
-    acronym: string;
-    descriptionCoin: string;
-    linkToWikipedia: string;
+export interface CoinFilter { 
+    offset?: number;
+    limit?: number;
+    skip?: number;
+    order?: string | Array<string>;
+    fields?: object | Set<string>;
+    include?: Array<CoinIncludeFilterItems | string>;
 }
 

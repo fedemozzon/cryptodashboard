@@ -105,7 +105,7 @@ export class CoinControllerController {
     },
   })
   async findById(
-    @param.path.number('id') id: number,
+    @param.path.string('id') id: string,
     @param.filter(Coin, {exclude: 'where'}) filter?: FilterExcludingWhere<Coin>
   ): Promise<Coin> {
     return this.coinRepository.findById(id, filter);
@@ -116,7 +116,7 @@ export class CoinControllerController {
     description: 'Coin PATCH success',
   })
   async updateById(
-    @param.path.number('id') id: number,
+    @param.path.string('id') id: string,
     @requestBody({
       content: {
         'application/json': {
@@ -134,7 +134,7 @@ export class CoinControllerController {
     description: 'Coin PUT success',
   })
   async replaceById(
-    @param.path.number('id') id: number,
+    @param.path.string('id') id: string,
     @requestBody() coin: Coin,
   ): Promise<void> {
     await this.coinRepository.replaceById(id, coin);
@@ -144,7 +144,7 @@ export class CoinControllerController {
   @response(204, {
     description: 'Coin DELETE success',
   })
-  async deleteById(@param.path.number('id') id: number): Promise<void> {
+  async deleteById(@param.path.string('id') id: string): Promise<void> {
     await this.coinRepository.deleteById(id);
   }
 }

@@ -4,8 +4,8 @@ README.md
 api.module.ts
 api/api.ts
 api/coinControllerController.service.ts
-api/coinQuotationController.service.ts
 api/pingController.service.ts
+api/quotationControllerController.service.ts
 configuration.ts
 encoder.ts
 git_push.sh
@@ -20,9 +20,11 @@ model/coinWithRelations.ts
 model/loopbackCount.ts
 model/models.ts
 model/newCoin.ts
-model/newQuotationInCoin.ts
+model/newQuotation.ts
 model/pingResponse.ts
 model/quotation.ts
+model/quotationFilter.ts
+model/quotationFilter1.ts
 model/quotationPartial.ts
 model/quotationWithRelations.ts
 variables.ts

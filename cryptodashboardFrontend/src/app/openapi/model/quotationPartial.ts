@@ -18,6 +18,6 @@ export interface QuotationPartial {
     idQuotation?: number;
     priceQuotation?: number;
     exchangeQuotation?: string;
-    coinId?: number;
+    coinId?: string;
 }
 

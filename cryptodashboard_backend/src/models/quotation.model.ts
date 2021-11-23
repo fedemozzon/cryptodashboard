@@ -3,28 +3,24 @@ import {Entity, model, property} from '@loopback/repository';
 @model()
 export class Quotation extends Entity {
   @property({
-    type: 'number',
+    type: 'string',
     id: true,
     generated: true,
   })
-  idQuotation?: number;
+  idQuotation?: string;
 
   @property({
     type: 'number',
     required: true,
   })
-  priceQuotation: number;
+  price: number;
 
   @property({
-    type: 'string',
+    type: 'date',
     required: true,
   })
-  exchangeQuotation: string;
+  date: string;
 
-  @property({
-    type: 'number',
-  })
-  coinId?: number;
 
   constructor(data?: Partial<Quotation>) {
     super(data);

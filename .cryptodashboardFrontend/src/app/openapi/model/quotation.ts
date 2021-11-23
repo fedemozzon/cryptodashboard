@@ -11,11 +11,9 @@
  */
 
 
-export interface Coin { 
-    nameCoin: string;
-    idCoin?: string;
-    acronym: string;
-    descriptionCoin: string;
-    linkToWikipedia: string;
+export interface Quotation { 
+    idQuotation?: string;
+    price: number;
+    date: string;
 }
 

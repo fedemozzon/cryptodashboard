@@ -11,13 +11,15 @@ import { Coin } from '../openapi/model/coin';
 export class CoinsComponent implements OnInit {
   coins:Coin[] = []
   dataSource:Coin[] = []
-  displayedColumns: string[] = ['name', 'acronym', 'description', 'linkToWikipedia'];
+  displayedColumns: string[] = ['name', 'acronym', 'description', 'linkToWikipedia','actions'];
   constructor(private service: CoinService) { }
 
   ngOnInit(): void {
     this.service.getCoinList().subscribe((coins )=> this.coins = coins);
     this.dataSource = this.coins
   }
+getRecord(some:any){
 
+}
 
 }

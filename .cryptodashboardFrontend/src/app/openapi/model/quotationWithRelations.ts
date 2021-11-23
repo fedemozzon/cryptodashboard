@@ -11,11 +11,12 @@
  */
 
 
-export interface Coin { 
-    nameCoin: string;
-    idCoin?: string;
-    acronym: string;
-    descriptionCoin: string;
-    linkToWikipedia: string;
+/**
+ * (tsType: QuotationWithRelations, schemaOptions: { includeRelations: true })
+ */
+export interface QuotationWithRelations { 
+    idQuotation?: string;
+    price: number;
+    date: string;
 }
 

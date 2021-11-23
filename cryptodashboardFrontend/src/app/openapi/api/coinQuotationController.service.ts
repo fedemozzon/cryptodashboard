@@ -93,10 +93,10 @@ export class CoinQuotationControllerService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public coinQuotationControllerCreate(id: number, newQuotationInCoin?: NewQuotationInCoin, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<Quotation>;
-    public coinQuotationControllerCreate(id: number, newQuotationInCoin?: NewQuotationInCoin, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<Quotation>>;
-    public coinQuotationControllerCreate(id: number, newQuotationInCoin?: NewQuotationInCoin, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<Quotation>>;
-    public coinQuotationControllerCreate(id: number, newQuotationInCoin?: NewQuotationInCoin, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+    public coinQuotationControllerCreate(id: string, newQuotationInCoin?: NewQuotationInCoin, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<Quotation>;
+    public coinQuotationControllerCreate(id: string, newQuotationInCoin?: NewQuotationInCoin, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<Quotation>>;
+    public coinQuotationControllerCreate(id: string, newQuotationInCoin?: NewQuotationInCoin, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<Quotation>>;
+    public coinQuotationControllerCreate(id: string, newQuotationInCoin?: NewQuotationInCoin, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling coinQuotationControllerCreate.');
         }
@@ -148,10 +148,10 @@ export class CoinQuotationControllerService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public coinQuotationControllerDelete(id: number, where?: { [key: string]: object; }, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<LoopbackCount>;
-    public coinQuotationControllerDelete(id: number, where?: { [key: string]: object; }, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<LoopbackCount>>;
-    public coinQuotationControllerDelete(id: number, where?: { [key: string]: object; }, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<LoopbackCount>>;
-    public coinQuotationControllerDelete(id: number, where?: { [key: string]: object; }, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+    public coinQuotationControllerDelete(id: string, where?: { [key: string]: object; }, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<LoopbackCount>;
+    public coinQuotationControllerDelete(id: string, where?: { [key: string]: object; }, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<LoopbackCount>>;
+    public coinQuotationControllerDelete(id: string, where?: { [key: string]: object; }, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<LoopbackCount>>;
+    public coinQuotationControllerDelete(id: string, where?: { [key: string]: object; }, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling coinQuotationControllerDelete.');
         }
@@ -200,10 +200,10 @@ export class CoinQuotationControllerService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public coinQuotationControllerFind(id: number, filter?: { [key: string]: object; }, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<Array<Quotation>>;
-    public coinQuotationControllerFind(id: number, filter?: { [key: string]: object; }, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<Array<Quotation>>>;
-    public coinQuotationControllerFind(id: number, filter?: { [key: string]: object; }, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<Array<Quotation>>>;
-    public coinQuotationControllerFind(id: number, filter?: { [key: string]: object; }, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+    public coinQuotationControllerFind(id: string, filter?: { [key: string]: object; }, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<Array<Quotation>>;
+    public coinQuotationControllerFind(id: string, filter?: { [key: string]: object; }, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<Array<Quotation>>>;
+    public coinQuotationControllerFind(id: string, filter?: { [key: string]: object; }, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<Array<Quotation>>>;
+    public coinQuotationControllerFind(id: string, filter?: { [key: string]: object; }, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling coinQuotationControllerFind.');
         }
@@ -253,10 +253,10 @@ export class CoinQuotationControllerService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public coinQuotationControllerPatch(id: number, where?: { [key: string]: object; }, quotationPartial?: QuotationPartial, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<LoopbackCount>;
-    public coinQuotationControllerPatch(id: number, where?: { [key: string]: object; }, quotationPartial?: QuotationPartial, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<LoopbackCount>>;
-    public coinQuotationControllerPatch(id: number, where?: { [key: string]: object; }, quotationPartial?: QuotationPartial, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<LoopbackCount>>;
-    public coinQuotationControllerPatch(id: number, where?: { [key: string]: object; }, quotationPartial?: QuotationPartial, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+    public coinQuotationControllerPatch(id: string, where?: { [key: string]: object; }, quotationPartial?: QuotationPartial, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<LoopbackCount>;
+    public coinQuotationControllerPatch(id: string, where?: { [key: string]: object; }, quotationPartial?: QuotationPartial, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<LoopbackCount>>;
+    public coinQuotationControllerPatch(id: string, where?: { [key: string]: object; }, quotationPartial?: QuotationPartial, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<LoopbackCount>>;
+    public coinQuotationControllerPatch(id: string, where?: { [key: string]: object; }, quotationPartial?: QuotationPartial, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling coinQuotationControllerPatch.');
         }
