@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CoinService } from '../coin.service';
+import { CoinService } from '../service/coin.service';
 import { Coin } from '../openapi/model/coin'; 
 
 @Component({
@@ -11,7 +11,7 @@ import { Coin } from '../openapi/model/coin';
 export class CoinsComponent implements OnInit {
   coins:Coin[] = []
   dataSource:Coin[] = []
-  displayedColumns: string[] = ['name', 'acronym', 'description', 'linkToWikipedia','actions'];
+  displayedColumns: string[] = ['name', 'acronym', 'description', 'linkToWikipedia'];
   constructor(private service: CoinService) { }
 
   ngOnInit(): void {

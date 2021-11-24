@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
-import { CoinControllerControllerService} from './openapi/api/coinControllerController.service';
-import { Coin } from './openapi/model/coin';
+import { CoinControllerControllerService} from '../openapi/api/coinControllerController.service';
+import { Coin } from '../openapi/model/coin';
 
 
 @Injectable({

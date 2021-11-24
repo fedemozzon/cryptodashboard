@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoinsComponent } from './coins/coins.component';
@@ -12,6 +13,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { AddCoinComponent } from './add-coin/add-coin.component';
 import { CoinComponent } from './coin/coin.component';
+import { map } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,7 @@ import { CoinComponent } from './coin/coin.component';
     MatTableModule,
     MatButtonModule,
     MatIconModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
