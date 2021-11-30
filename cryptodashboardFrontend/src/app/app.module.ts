@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,14 +14,18 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { AddCoinComponent } from './add-coin/add-coin.component';
 import { CoinComponent } from './coin/coin.component';
-import { map } from 'rxjs';
+import * as PlotlyJS from 'plotly.js-dist-min';
+import { PlotlyModule } from 'angular-plotly.js';
+
+PlotlyModule.plotlyjs = PlotlyJS;
+
 
 @NgModule({
   declarations: [
     AppComponent,
     CoinsComponent,
     AddCoinComponent,
-    CoinComponent
+    CoinComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,6 +37,9 @@ import { map } from 'rxjs';
     MatButtonModule,
     MatIconModule,
     ReactiveFormsModule,
+    CommonModule,
+    PlotlyModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

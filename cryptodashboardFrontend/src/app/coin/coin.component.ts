@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CoinService } from '../service/coin.service';
 import { ExchangeQuotationService} from '../service/exchange-quotation.service';
 import { Coin } from '../openapi/model/coin';
+
+
 
 @Component({
   selector: 'app-coin',
@@ -22,6 +24,9 @@ export class CoinComponent implements OnInit {
     descriptionCoin:'',
     linkToWikipedia:''
   }
+  graph: any
+
+  
   constructor(private route: ActivatedRoute,private service: CoinService, private exchangeService:ExchangeQuotationService) { }
 
   ngOnInit(): void {
@@ -30,10 +35,17 @@ export class CoinComponent implements OnInit {
     this.exchangeService.getQuotationForExchange(this.quotationForDay+this.coin.acronym+this.time).subscribe(response => {
       this.results = response
       this.results = this.results.Data.Data
-      console.log(this.results)
+      console.log(this.results.map(function (obj:any) {return obj.high }))
+      this.graph = {
+        data: [
+            { x: this.results.map(function (obj:any) {return obj.time }) , y:this.results.map(function (obj:any) {return obj.high }) , type: 'scatter', mode: 'lines+points', marker: {color: 'red'} },
+        ],
+        layout: {width: 400, height: 400, title: 'A Fancy Plot'}
+    };
     })
   }
   );
   }
+  
 
 }
