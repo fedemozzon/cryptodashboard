@@ -20,7 +20,7 @@ import {
 import {Coin} from '../models';
 import {CoinRepository} from '../repositories';
 
-export class CoinControllerController {
+export class CoinController {
   constructor(
     @repository(CoinRepository)
     public coinRepository : CoinRepository,

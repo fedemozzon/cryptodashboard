@@ -5,16 +5,16 @@ import {Quotation} from './quotation.model';
 export class Coin extends Entity {
   @property({
     type: 'string',
-    required: true,
-  })
-  nameCoin: string;
-
-  @property({
-    type: 'string',
     id: true,
     generated: true,
   })
   idCoin?: string;
+
+  @property({
+    type: 'string',
+    required: true,
+  })
+  nameCoin: string;
 
   @property({
     type: 'string',
@@ -26,7 +26,7 @@ export class Coin extends Entity {
     type: 'string',
     required: true,
   })
-  descriptionCoin: string;
+  description: string;
 
   @property({
     type: 'string',
@@ -36,6 +36,11 @@ export class Coin extends Entity {
 
   @hasMany(() => Quotation)
   quotations: Quotation[];
+
+  @property({
+    type: 'string',
+  })
+  userId?: string;
 
   constructor(data?: Partial<Coin>) {
     super(data);

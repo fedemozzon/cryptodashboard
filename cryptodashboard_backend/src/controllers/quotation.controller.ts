@@ -20,7 +20,7 @@ import {
 import {Quotation} from '../models';
 import {QuotationRepository} from '../repositories';
 
-export class QuotationControllerController {
+export class QuotationController {
   constructor(
     @repository(QuotationRepository)
     public quotationRepository : QuotationRepository,

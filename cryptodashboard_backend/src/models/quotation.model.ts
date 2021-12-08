@@ -13,14 +13,18 @@ export class Quotation extends Entity {
     type: 'number',
     required: true,
   })
-  price: number;
+  valueQuotation: number;
 
   @property({
     type: 'date',
     required: true,
   })
-  date: string;
+  dateCreationQuotation: string;
 
+  @property({
+    type: 'string',
+  })
+  coinId?: string;
 
   constructor(data?: Partial<Quotation>) {
     super(data);
