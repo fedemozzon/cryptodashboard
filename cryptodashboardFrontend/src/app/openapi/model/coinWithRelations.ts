@@ -1,6 +1,6 @@
 /**
- * cryptodashboard_backend
- * cryptodashboard
+ * backend
+ * iaw
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: mozzonfederico@gmail.com
@@ -9,18 +9,16 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { QuotationWithRelations } from './quotationWithRelations';
 
 
 /**
  * (tsType: CoinWithRelations, schemaOptions: { includeRelations: true })
  */
 export interface CoinWithRelations { 
-    nameCoin: string;
     idCoin?: string;
+    nameCoin: string;
+    description: string;
     acronym: string;
-    descriptionCoin: string;
     linkToWikipedia: string;
-    quotations?: Array<QuotationWithRelations>;
 }
 

@@ -2,9 +2,9 @@ import { NgModule, ModuleWithProviders, SkipSelf, Optional } from '@angular/core
 import { Configuration } from './configuration';
 import { HttpClient } from '@angular/common/http';
 
-import { CoinControllerControllerService } from './api/coinControllerController.service';
-import { CoinQuotationControllerService } from './api/coinQuotationController.service';
+import { CoinControllerService } from './api/coinController.service';
 import { PingControllerService } from './api/pingController.service';
+import { UserControllerService } from './api/userController.service';
 
 @NgModule({
   imports:      [],

@@ -16,6 +16,8 @@ import { AddCoinComponent } from './add-coin/add-coin.component';
 import { CoinComponent } from './coin/coin.component';
 import * as PlotlyJS from 'plotly.js-dist-min';
 import { PlotlyModule } from 'angular-plotly.js';
+import { LoginUserComponent } from './login-user/login-user.component';
+import { AddUserComponent } from './add-user/add-user.component';
 
 PlotlyModule.plotlyjs = PlotlyJS;
 
@@ -26,6 +28,8 @@ PlotlyModule.plotlyjs = PlotlyJS;
     CoinsComponent,
     AddCoinComponent,
     CoinComponent,
+    LoginUserComponent,
+    AddUserComponent,
   ],
   imports: [
     BrowserModule,

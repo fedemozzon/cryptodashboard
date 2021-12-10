@@ -1,0 +1,15 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="newCoinForm"> 
+
+    <div class="form-group">
+       <label for="coinName">Username</label>
+       <input type="text" required formControlName="coinName" class="form-control">
+       <label for="coinDescription">Password</label>
+       <input type="text" required formControlName="coinDescription" class="form-control">
+   </div>
+ 
+   <div class="form-group">
+       <button class="btn btn-primary" type="submit">Login</button>
+       <a routerLink="/addUser" class="btn btn-link">Registrarme</a>    
+   </div>
+
+</form>

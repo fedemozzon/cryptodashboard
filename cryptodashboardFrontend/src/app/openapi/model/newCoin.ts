@@ -1,6 +1,6 @@
 /**
- * cryptodashboard_backend
- * cryptodashboard
+ * backend
+ * iaw
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: mozzonfederico@gmail.com
@@ -16,8 +16,8 @@
  */
 export interface NewCoin { 
     nameCoin: string;
+    description: string;
     acronym: string;
-    descriptionCoin: string;
     linkToWikipedia: string;
 }
 

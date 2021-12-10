@@ -1,6 +1,6 @@
 /**
- * cryptodashboard_backend
- * cryptodashboard
+ * backend
+ * iaw
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: mozzonfederico@gmail.com
@@ -9,16 +9,14 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { CoinIncludeFilterItems } from './coinIncludeFilterItems';
 
 
 export interface CoinFilter1 { 
     offset?: number;
     limit?: number;
     skip?: number;
-    order?: string | Array<string>;
+    order?: string | Array<string> | null;
     where?: { [key: string]: object; };
-    fields?: object | Set<string>;
-    include?: Array<CoinIncludeFilterItems | string>;
+    fields?: object | Set<string> | null;
 }
 

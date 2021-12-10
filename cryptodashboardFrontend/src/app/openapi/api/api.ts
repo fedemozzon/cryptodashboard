@@ -1,7 +1,7 @@
-export * from './coinControllerController.service';
-import { CoinControllerControllerService } from './coinControllerController.service';
-export * from './coinQuotationController.service';
-import { CoinQuotationControllerService } from './coinQuotationController.service';
+export * from './coinController.service';
+import { CoinControllerService } from './coinController.service';
 export * from './pingController.service';
 import { PingControllerService } from './pingController.service';
-export const APIS = [CoinControllerControllerService, CoinQuotationControllerService, PingControllerService];
+export * from './userController.service';
+import { UserControllerService } from './userController.service';
+export const APIS = [CoinControllerService, PingControllerService, UserControllerService];

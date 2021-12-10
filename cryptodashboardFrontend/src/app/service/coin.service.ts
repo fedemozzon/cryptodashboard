@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { CoinControllerControllerService} from '../openapi/api/coinControllerController.service';
+import { CoinControllerService} from '../openapi/api/coinController.service';
 import { Coin } from '../openapi/model/coin';
 
 
@@ -9,19 +9,19 @@ import { Coin } from '../openapi/model/coin';
 })
 export class CoinService {
 
-  constructor( private http: CoinControllerControllerService) { }
+  constructor( private http: CoinControllerService) { }
 
   getCoinList(){
-    return this.http.coinControllerControllerFind()
+    return this.http.coinControllerFind()
   }
 
   addCoin(coin:Coin){
-    return this.http.coinControllerControllerCreate(coin)
+    return this.http.coinControllerCreate(coin)
   }
 
-  getCoin(coin:Coin){
-    return this.http.coinControllerControllerFindById(Number(coin.idCoin))
-  }
+  // getCoin(coin:Coin){
+  //   return this.http.coinControllerFindById(coin.idCoin)
+  // }
 
 
 }

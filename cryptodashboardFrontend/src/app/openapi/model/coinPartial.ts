@@ -1,6 +1,6 @@
 /**
- * cryptodashboard_backend
- * cryptodashboard
+ * backend
+ * iaw
  *
  * The version of the OpenAPI document: 0.0.1
  * Contact: mozzonfederico@gmail.com
@@ -15,10 +15,10 @@
  * (tsType: Partial<Coin>, schemaOptions: { partial: true })
  */
 export interface CoinPartial { 
-    nameCoin?: string;
     idCoin?: string;
+    nameCoin?: string;
+    description?: string;
     acronym?: string;
-    descriptionCoin?: string;
     linkToWikipedia?: string;
 }
 

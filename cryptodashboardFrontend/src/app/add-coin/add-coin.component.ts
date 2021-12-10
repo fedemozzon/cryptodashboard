@@ -18,7 +18,7 @@ export class AddCoinComponent implements OnInit {
     if (idx){
       this.coin=<Coin>{
         nameCoin: "" ,
-        descriptionCoin: "",
+        description: "",
         acronym:"",
         linkToWikipedia:""
       }
@@ -26,7 +26,7 @@ export class AddCoinComponent implements OnInit {
     }else{
       this.coin= <Coin>{
         nameCoin: "" ,
-        descriptionCoin: "",
+        description: "",
         acronym:"",
         linkToWikipedia:""
       }
@@ -34,7 +34,7 @@ export class AddCoinComponent implements OnInit {
 
     this.newCoinForm = new FormGroup({
       coinName: new FormControl(this.coin.nameCoin),
-      coinDescription: new FormControl(this.coin.descriptionCoin),
+      coinDescription: new FormControl(this.coin.description),
       coinAcronym: new FormControl(this.coin.acronym),
       coinLinkToWikipedia: new FormControl(this.coin.linkToWikipedia)
     }); 
@@ -44,7 +44,7 @@ export class AddCoinComponent implements OnInit {
   onSubmit(){
     var coin=<Coin>{
     nameCoin:this.newCoinForm.get("coinName")?.value ,
-     descriptionCoin: this.newCoinForm.get("coinDescription")?.value,
+     description: this.newCoinForm.get("coinDescription")?.value,
      acronym: this.newCoinForm.get("coinAcronym")?.value,
      linkToWikipedia:this.newCoinForm.get("coinLinkToWikipedia")?.value,
     
