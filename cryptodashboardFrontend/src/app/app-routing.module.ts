@@ -9,7 +9,7 @@ import { LoginUserComponent } from './login-user/login-user.component';
 
 const routes: Routes = [
   { path: '', component: LoginUserComponent },
-  { path: 'addExchange', component: AddExchangeComponent },
+  { path: 'addExchange/:idx', component: AddExchangeComponent },
   { path: 'addUser', component: AddUserComponent },
   { path: 'coins', component: CoinsComponent },
   { path: 'addCoins', component: AddCoinComponent },

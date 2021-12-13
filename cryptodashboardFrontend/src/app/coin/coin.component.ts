@@ -19,10 +19,11 @@ export class CoinComponent implements OnInit {
   results: any
   displayedColumns: string[] = ['time','high','low'];
   coin:Coin = {
-    nameCoin:'papaa',
-    acronym:'papaaa',
+    nameCoin:'',
+    acronym:'',
     description:'',
-    linkToWikipedia:''
+    linkToWikipedia:'',
+    idCoin:''
   }
   graph: any
 
@@ -32,6 +33,7 @@ export class CoinComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+    this.service.getCoinList().subscribe((coins)=> this.coin = coins.filter((coinAct)=> coinAct.nameCoin == this.route.snapshot.paramMap.get("idx"))[0])
   //   this.service.getCoinList().subscribe((coins )=> {
   //   this.coin = coins.filter(coin => coin.nameCoin == this.route.snapshot.paramMap.get("idx"))[0]
   //   this.exchangeService.getQuotationForExchange(this.quotationForDay+this.coin.acronym+this.time).subscribe(response => {

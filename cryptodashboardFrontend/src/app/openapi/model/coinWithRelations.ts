@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { ExchangeWithRelations } from './exchangeWithRelations';
 
 
 /**
@@ -20,5 +21,6 @@ export interface CoinWithRelations {
     description: string;
     acronym: string;
     linkToWikipedia: string;
+    exchanges?: Array<ExchangeWithRelations>;
 }
 

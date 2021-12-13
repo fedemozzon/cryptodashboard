@@ -9,16 +9,14 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { CoinIncludeFilterItems } from './coinIncludeFilterItems';
 
 
-export interface CoinFilter1 { 
+export interface ExchangeFilter1 { 
     offset?: number;
     limit?: number;
     skip?: number;
     order?: string | Array<string> | null;
     where?: { [key: string]: object; };
     fields?: object | Set<string> | null;
-    include?: Array<CoinIncludeFilterItems | string>;
 }
 
