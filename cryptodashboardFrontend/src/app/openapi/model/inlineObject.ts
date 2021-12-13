@@ -11,14 +11,8 @@
  */
 
 
-/**
- * (tsType: Partial<User>, schemaOptions: { partial: true })
- */
-export interface UserPartial { 
-    idUser?: string;
-    username?: string;
-    email?: string;
-    password?: string;
-    coins?: Array<object>;
+export interface InlineObject { 
+    email: string;
+    password: string;
 }
 

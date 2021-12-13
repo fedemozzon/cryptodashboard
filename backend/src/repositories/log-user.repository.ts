@@ -3,7 +3,7 @@ import {DefaultCrudRepository} from '@loopback/repository';
 import {MongoConnectionDataSource} from '../datasources';
 import {User, UserRelations} from '../models';
 
-export class UserRepository extends DefaultCrudRepository<
+export class LogUserRepository extends DefaultCrudRepository<
   User,
   typeof User.prototype.idUser,
   UserRelations

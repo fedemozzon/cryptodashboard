@@ -15,7 +15,7 @@ export class CoinComponent implements OnInit {
   coins: Coin [] = []
   quotationForHour: string = "https://min-api.cryptocompare.com/data/v2/histohour?tsym=USD&fsym="
   quotationForDay: string = "https://min-api.cryptocompare.com/data/v2/histoday?tsym=USD&fsym="
-  time :string = "&limit=3"
+  // time :string = "&limit=3"
   results: any
   displayedColumns: string[] = ['time','high','low'];
   coin:Coin = {

@@ -4,6 +4,7 @@ README.md
 api.module.ts
 api/api.ts
 api/coinController.service.ts
+api/loginController.service.ts
 api/pingController.service.ts
 api/userController.service.ts
 configuration.ts
@@ -15,10 +16,13 @@ model/coinFilter.ts
 model/coinFilter1.ts
 model/coinPartial.ts
 model/coinWithRelations.ts
+model/inlineObject.ts
+model/inlineResponse200.ts
 model/loopbackCount.ts
 model/models.ts
 model/newCoin.ts
 model/newUser.ts
+model/newUserRequest.ts
 model/pingResponse.ts
 model/user.ts
 model/userFilter.ts

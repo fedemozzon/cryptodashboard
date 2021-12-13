@@ -1,2 +1,2 @@
 export * from './coin.repository';
-export * from './user.repository';
+export * from './log-user.repository';

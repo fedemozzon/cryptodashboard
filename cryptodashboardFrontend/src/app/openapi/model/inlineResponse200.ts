@@ -11,14 +11,7 @@
  */
 
 
-/**
- * (tsType: Partial<User>, schemaOptions: { partial: true })
- */
-export interface UserPartial { 
-    idUser?: string;
-    username?: string;
-    email?: string;
-    password?: string;
-    coins?: Array<object>;
+export interface InlineResponse200 { 
+    token?: string;
 }
 

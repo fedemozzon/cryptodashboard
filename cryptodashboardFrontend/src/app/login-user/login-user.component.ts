@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Optional } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Coin } from '../openapi';
-import { CoinService } from '../service/coin.service';
+import { Router } from '@angular/router';
+import { Configuration, InlineObject, InlineResponse200, UserControllerService } from '../openapi';
+import { UserService } from '../service/user.service';
 
 @Component({
   selector: 'app-login-user',
@@ -11,33 +11,40 @@ import { CoinService } from '../service/coin.service';
 })
 export class LoginUserComponent implements OnInit {
   newCoinForm:FormGroup
-  coin:Coin
-  constructor(private router:Router,  private service: CoinService) {
-      this.coin= <Coin>{
-        // nameCoin: "" ,
-        // descriptionCoin: "",
-        // acronym:"",
-        // linkToWikipedia:""
+  logUser:InlineObject
+  configuration
+  constructor(private router:Router,  private service: UserService, @Optional() configuration: Configuration) {
+    if (configuration) {
+      this.configuration = configuration;
+  }
+
+      this.logUser= <InlineObject>{
+        email:'',
+        password:''
       }
     this.newCoinForm = new FormGroup({
-      coinName: new FormControl(this.coin.nameCoin),
-      coinDescription: new FormControl(this.coin.description),
-      coinAcronym: new FormControl(this.coin.acronym),
-      coinLinkToWikipedia: new FormControl(this.coin.linkToWikipedia)
+      userEmail: new FormControl(this.logUser.email),
+      userPassword: new FormControl(this.logUser.password),
     }); 
    }
 
   ngOnInit(): void {}
     onSubmit(){
-    var coin=<Coin>{
-    //   nameCoin:this.newCoinForm.get("coinName")?.value ,
-    //    descriptionCoin: this.newCoinForm.get("coinDescription")?.value,
-    //    acronym: this.newCoinForm.get("coinAcronym")?.value,
-    //    linkToWikipedia:this.newCoinForm.get("coinLinkToWikipedia")?.value,
-      
+    var logUser=<InlineObject>{
+      email:this.newCoinForm.get("userEmail")?.value ,
+       password: this.newCoinForm.get("userPassword")?.value,
      }
-     console.log(coin)
-     this.service.addCoin(coin).subscribe(()=> this.router.navigateByUrl("/coins"))
+     console.log(logUser)
+     this.service.login(logUser).subscribe(
+       (resp:InlineResponse200)=> {
+        console.log(resp)
+        if (this.configuration) {
+          this.configuration=this.configuration
+          this.configuration.accessToken=resp.token
+        }  
+        this.router.navigateByUrl("/coins")
+       }
+       )
   }
 
 }

@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --proxy-config proxy.conf.json",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
@@ -21,6 +21,8 @@
     "@angular/platform-browser": "~13.0.0",
     "@angular/platform-browser-dynamic": "~13.0.0",
     "@angular/router": "~13.0.0",
+    "@loopback/authentication": "^8.0.0",
+    "@loopback/authentication-jwt": "^0.10.0",
     "angular-plotly.js": "^4.0.4",
     "plotly.js-dist": "^2.6.4",
     "plotly.js-dist-min": "^2.6.4",

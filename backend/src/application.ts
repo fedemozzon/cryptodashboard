@@ -9,6 +9,11 @@ import {RestApplication} from '@loopback/rest';
 import {ServiceMixin} from '@loopback/service-proxy';
 import path from 'path';
 import {MySequence} from './sequence';
+import {AuthenticationComponent} from '@loopback/authentication';
+import {JWTAuthenticationComponent, SECURITY_SCHEME_SPEC,UserServiceBindings,
+} from '@loopback/authentication-jwt';
+import {MongoConnectionDataSource} from './datasources';
+
 
 export {ApplicationConfig};
 
@@ -29,7 +34,12 @@ export class BackendApplication extends BootMixin(
       path: '/explorer',
     });
     this.component(RestExplorerComponent);
-
+    // Mount authentication system
+    this.component(AuthenticationComponent);
+    // Mount jwt component
+    this.component(JWTAuthenticationComponent);
+    // Bind datasource
+    this.dataSource(MongoConnectionDataSource, UserServiceBindings.DATASOURCE_NAME);
     this.projectRoot = __dirname;
     // Customize @loopback/boot Booter Conventions here
     this.bootOptions = {

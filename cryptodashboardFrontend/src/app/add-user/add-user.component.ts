@@ -16,13 +16,13 @@ export class AddUserComponent implements OnInit {
   constructor(private route: ActivatedRoute , private router:Router,  private service: UserService ) { 
       this.user= <User>{
         username:'',
-        mail:'',
+        email:'',
         password:''
       }
 
     this.newCoinForm = new FormGroup({
       userUsername: new FormControl(this.user.username),
-      userMail: new FormControl(this.user.mail),
+      userMail: new FormControl(this.user.email),
       userPassword: new FormControl(this.user.password)
     });
   }
@@ -33,12 +33,12 @@ export class AddUserComponent implements OnInit {
   onSubmit(){
     var user=<User>{
     username:this.newCoinForm.get("userUsername")?.value ,
-     mail: this.newCoinForm.get("userMail")?.value,
+     email: this.newCoinForm.get("userMail")?.value,
      password: this.newCoinForm.get("userPassword")?.value,
      coins:[]
    }
    console.log(user)
-   this.service.addUser(user).subscribe(()=> this.router.navigateByUrl("/coins"))
+   this.service.register(user).subscribe(()=> this.router.navigateByUrl("/coins"))
  }
 
 }

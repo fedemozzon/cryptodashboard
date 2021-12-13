@@ -3,6 +3,7 @@ import { Configuration } from './configuration';
 import { HttpClient } from '@angular/common/http';
 
 import { CoinControllerService } from './api/coinController.service';
+import { LoginControllerService } from './api/loginController.service';
 import { PingControllerService } from './api/pingController.service';
 import { UserControllerService } from './api/userController.service';
 

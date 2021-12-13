@@ -11,14 +11,16 @@
  */
 
 
-/**
- * (tsType: Partial<User>, schemaOptions: { partial: true })
- */
-export interface UserPartial { 
-    idUser?: string;
+export interface NewUserRequest { 
+  [key: string]: object | any;
+
+
+    id?: string;
+    realm?: string;
     username?: string;
-    email?: string;
-    password?: string;
-    coins?: Array<object>;
+    email: string;
+    emailVerified?: boolean;
+    verificationToken?: string;
+    password: string;
 }
 

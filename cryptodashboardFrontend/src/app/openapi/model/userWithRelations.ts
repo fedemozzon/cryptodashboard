@@ -17,7 +17,7 @@
 export interface UserWithRelations { 
     idUser?: string;
     username: string;
-    mail: string;
+    email: string;
     password: string;
     coins: Array<object>;
 }

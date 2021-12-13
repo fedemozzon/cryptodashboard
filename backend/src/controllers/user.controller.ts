@@ -18,12 +18,12 @@ import {
   response,
 } from '@loopback/rest';
 import {User} from '../models';
-import {UserRepository} from '../repositories';
+import {LogUserRepository} from '../repositories';
 
 export class UserController {
   constructor(
-    @repository(UserRepository)
-    public userRepository : UserRepository,
+    @repository(LogUserRepository)
+    public userRepository : LogUserRepository,
   ) {}
 
   @post('/users')
