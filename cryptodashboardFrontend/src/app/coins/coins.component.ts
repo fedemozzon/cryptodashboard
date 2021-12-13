@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Optional } from '@angular/core';
 import { Router } from '@angular/router';
 import { CoinService } from '../service/coin.service';
-import { Coin } from '../openapi/model/coin'; 
+import { Coin } from '../openapi/model/coin';
 
 @Component({
   selector: 'app-coins',
@@ -12,11 +12,13 @@ export class CoinsComponent implements OnInit {
   coins:Coin[] = []
   dataSource:Coin[] = []
   displayedColumns: string[] = ['name', 'acronym', 'description', 'linkToWikipedia'];
-  constructor(private service: CoinService) { }
+  constructor(private service: CoinService) {
+   }
 
   ngOnInit(): void {
     this.service.getCoinList().subscribe((coins )=> this.coins = coins);
     this.dataSource = this.coins
+    console.log(localStorage.getItem('userId'))
   }
 getRecord(some:any){
 

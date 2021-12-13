@@ -17,6 +17,7 @@ import {
   requestBody,
   response,
 } from '@loopback/rest';
+import {authenticate} from '@loopback/authentication';
 import {Coin} from '../models';
 import {CoinRepository} from '../repositories';
 

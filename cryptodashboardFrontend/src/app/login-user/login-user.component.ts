@@ -12,6 +12,7 @@ import { UserService } from '../service/user.service';
 export class LoginUserComponent implements OnInit {
   newCoinForm:FormGroup
   logUser:InlineObject
+  actUser: any
   configuration
   constructor(private router:Router,  private service: UserService, @Optional() configuration: Configuration) {
     if (configuration) {
@@ -37,14 +38,15 @@ export class LoginUserComponent implements OnInit {
      console.log(logUser)
      this.service.login(logUser).subscribe(
        (resp:InlineResponse200)=> {
-        console.log(resp)
         if (this.configuration) {
           this.configuration=this.configuration
           this.configuration.accessToken=resp.token
         }  
-        this.router.navigateByUrl("/coins")
+        localStorage.setItem('token', resp.token as string)
        }
        )
+       this.service.getUsers().subscribe((resp) => localStorage.setItem('userId', resp.filter((user)=> user.email == logUser.email)[0].idUser as string))
+       this.router.navigateByUrl("/coins")
   }
 
 }

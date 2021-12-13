@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CoinService } from '../service/coin.service';
 import { Coin } from '../openapi';
+import { UserService } from '../service/user.service';
 
 @Component({
   selector: 'app-add-coin',
@@ -13,7 +14,7 @@ export class AddCoinComponent implements OnInit {
   newCoinForm:FormGroup
   coin:Coin
 
-  constructor(private route: ActivatedRoute , private router:Router,  private service: CoinService) { 
+  constructor(private route: ActivatedRoute , private router:Router,  private service: CoinService, private userService: UserService) { 
     var idx=route.snapshot.paramMap.get("idx");
     if (idx){
       this.coin=<Coin>{
@@ -49,7 +50,12 @@ export class AddCoinComponent implements OnInit {
      linkToWikipedia:this.newCoinForm.get("coinLinkToWikipedia")?.value,
     
    }
-   console.log(coin)
+   let id = localStorage.getItem('userId') as string
+   this.userService.getUserById(id).subscribe((user) => {
+    user.coins.push(coin)
+    console.log(user)
+    this.userService.addCoin(id, user).subscribe((user) => console.log(user))
+   })
    this.service.addCoin(coin).subscribe(()=> this.router.navigateByUrl("/coins"))
  }
 
