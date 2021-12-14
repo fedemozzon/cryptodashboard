@@ -1,5 +1,5 @@
 import {BootMixin} from '@loopback/boot';
-import {ApplicationConfig} from '@loopback/core';
+import {ApplicationConfig, createBindingFromClass} from '@loopback/core';
 import {
   RestExplorerBindings,
   RestExplorerComponent,
@@ -12,6 +12,8 @@ import {MySequence} from './sequence';
 import {AuthenticationComponent} from '@loopback/authentication';
 import {JWTAuthenticationComponent, SECURITY_SCHEME_SPEC,UserServiceBindings,
 } from '@loopback/authentication-jwt';
+import {CronComponent} from '@loopback/cron';
+import {MyCronJob} from './jobs/MyCronJob';
 import {MongoConnectionDataSource} from './datasources';
 
 
@@ -33,6 +35,8 @@ export class BackendApplication extends BootMixin(
     this.configure(RestExplorerBindings.COMPONENT).to({
       path: '/explorer',
     });
+    this.component(CronComponent);
+    this.add(createBindingFromClass(MyCronJob));
     this.component(RestExplorerComponent);
     // Mount authentication system
     this.component(AuthenticationComponent);
