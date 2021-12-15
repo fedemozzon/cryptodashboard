@@ -16,7 +16,7 @@ export class Quotation extends Entity {
   idQuotation?: string;
 
   @property({
-    type: 'date',
+    type: 'string',
     required: true,
   })
   dateCreation: string;

@@ -60,7 +60,8 @@
     "@loopback/service-proxy": "^3.2.4",
     "cron": "^1.8.2",
     "loopback-connector-mongodb": "^5.6.0",
-    "tslib": "^2.0.0"
+    "tslib": "^2.0.0",
+    "xmlhttprequest": "^1.8.0"
   },
   "devDependencies": {
     "@loopback/build": "^7.0.2",
