@@ -18,13 +18,14 @@ export class MyCronJob extends CronJob {
        }
       exchanges.forEach((exchange) => {
         // tengo que poner una fecha valida
-        quotation.dateCreation = 'dakjadkja',
+        quotation.dateCreation = new Date(),
         quotation.price = eval(exchange.script),
-        quotation.coinId = exchange.coinId
+        quotation.coinId = exchange.coinId,
+        quotation.exchangeName = exchange.nameExchange
         quotationRepository.create(quotation)
       })
      },
-     cronTime: '*/10 * * * * *',
+     cronTime: '*/5 * * * *',
      start: true,
    });}
 }

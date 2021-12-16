@@ -1,7 +1,7 @@
 <table mat-table [dataSource]="coins" class="mat-elevation-z8">
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef> Name </th>
-    <td mat-cell [routerLink]="['/coins/', coin.nameCoin]" *matCellDef="let coin"> {{coin.nameCoin}} </td>
+    <td mat-cell [routerLink]="['/coins/', coin.idCoin]" *matCellDef="let coin"> {{coin.nameCoin}} </td>
   </ng-container>
 
   <ng-container matColumnDef="acronym">

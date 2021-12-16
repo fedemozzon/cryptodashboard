@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { User, UserControllerService,LoginControllerService, InlineObject, Coin} from '../openapi';
+import { User, UserControllerService,LoginControllerService, InlineObject} from '../openapi';
 
 @Injectable({
   providedIn: 'root'

@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { QuotationWithRelations } from './quotationWithRelations';
 import { ExchangeWithRelations } from './exchangeWithRelations';
 
 
@@ -22,5 +23,6 @@ export interface CoinWithRelations {
     acronym: string;
     linkToWikipedia: string;
     exchanges?: Array<ExchangeWithRelations>;
+    quotations?: Array<QuotationWithRelations>;
 }
 

@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { CoinService } from '../service/coin.service';
 // import { ExchangeQuotationService} from '../service/exchange-quotation.service';
 import { Coin } from '../openapi/model/coin';
+import { Quotation } from '../openapi';
+import { QuotationService } from '../service/quotation.service';
 
 
 
@@ -12,12 +14,10 @@ import { Coin } from '../openapi/model/coin';
   styleUrls: ['./coin.component.scss']
 })
 export class CoinComponent implements OnInit {
+  idCoin:string = ''
   coins: Coin [] = []
-  quotationForHour: string = "https://min-api.cryptocompare.com/data/v2/histohour?tsym=USD&fsym="
-  quotationForDay: string = "https://min-api.cryptocompare.com/data/v2/histoday?tsym=USD&fsym="
-  // time :string = "&limit=3"
-  results: any
-  displayedColumns: string[] = ['time','high','low'];
+  results: Quotation [] = []
+  displayedColumns: string[] = ['Date','Price','Exchange'];
   coin:Coin = {
     nameCoin:'',
     acronym:'',
@@ -28,12 +28,14 @@ export class CoinComponent implements OnInit {
   graph: any
 
   
-  constructor(private route: ActivatedRoute,private service: CoinService
-    //  private exchangeService:ExchangeQuotationService
-    ) { }
+  constructor(private route: ActivatedRoute,private service: CoinService, private quotationsService: QuotationService) { }
 
   ngOnInit(): void {
-    this.service.getCoinList().subscribe((coins)=> this.coin = coins.filter((coinAct)=> coinAct.nameCoin == this.route.snapshot.paramMap.get("idx"))[0])
+    this.idCoin = this.route.snapshot.paramMap.get("idx") as string
+    this.service.getCoin(this.idCoin).subscribe((coin) => this.coin = coin)
+    this.quotationsService.getQuotations().subscribe((quotations) => {this.results = quotations.filter((quotation)=> quotation.coinId = this.idCoin)
+    console.log(this.results)
+    })
   //   this.service.getCoinList().subscribe((coins )=> {
   //   this.coin = coins.filter(coin => coin.nameCoin == this.route.snapshot.paramMap.get("idx"))[0]
   //   this.exchangeService.getQuotationForExchange(this.quotationForDay+this.coin.acronym+this.time).subscribe(response => {

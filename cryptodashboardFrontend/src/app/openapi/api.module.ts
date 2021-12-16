@@ -4,9 +4,11 @@ import { HttpClient } from '@angular/common/http';
 
 import { CoinControllerService } from './api/coinController.service';
 import { CoinExchangeControllerService } from './api/coinExchangeController.service';
+import { CoinQuotationControllerService } from './api/coinQuotationController.service';
 import { ExchangeControllerService } from './api/exchangeController.service';
 import { LoginControllerService } from './api/loginController.service';
 import { PingControllerService } from './api/pingController.service';
+import { QuotationControllerService } from './api/quotationController.service';
 import { UserControllerService } from './api/userController.service';
 
 @NgModule({
