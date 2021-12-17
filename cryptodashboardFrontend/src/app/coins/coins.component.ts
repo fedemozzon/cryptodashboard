@@ -12,13 +12,18 @@ export class CoinsComponent implements OnInit {
   coins:Coin[] = []
   dataSource:Coin[] = []
   displayedColumns: string[] = ['name', 'acronym', 'description', 'linkToWikipedia'];
-  constructor(private service: CoinService) {
+  constructor(private service: CoinService, private router:Router) {
    }
 
   ngOnInit(): void {
-    this.service.getCoinList().subscribe((coins )=> this.coins = coins);
-    this.dataSource = this.coins
-    console.log(localStorage.getItem('userId'))
+    if (localStorage.getItem('token') != null){
+      this.service.getCoinList().subscribe((coins )=> this.coins = coins);
+      this.dataSource = this.coins
+      console.log(localStorage.getItem('userId'))
+    }
+    else this.router.navigateByUrl("/")
+
+
   }
 getRecord(some:any){
 

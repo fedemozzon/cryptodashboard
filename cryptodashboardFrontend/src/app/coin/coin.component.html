@@ -1,6 +1,13 @@
+<div class="container-fluid">
 <p>{{coin.nameCoin}}</p>
-<plotly-plot [data]="graph.data" [layout]="graph.layout"></plotly-plot>
-<plotly-plot [data]="graph2.data" [layout]="graph2.layout"></plotly-plot>
+<div class="row">
+  <div class="col">
+    <plotly-plot [data]="graph.data" [layout]="graph.layout"></plotly-plot>
+  </div>
+  <div class="col">
+    <plotly-plot [data]="graph2.data" [layout]="graph2.layout"></plotly-plot>
+  </div>
+</div>
 <table mat-table [dataSource]="results" class="mat-elevation-z8">
     <ng-container matColumnDef="Date">
       <th mat-header-cell *matHeaderCellDef> Date </th>
@@ -23,4 +30,9 @@
   </table>
 
   <div class="example-button-container">
-    <a [routerLink]="['/addExchange/', coin.nameCoin]" class="btn btn-link">add exchange</a> 
+    <button  mat-fab  [routerLink]="['/addExchange/', coin.nameCoin]" color="primary" aria-label="Example icon button with a delete icon">
+      <mat-icon>add</mat-icon>
+    </button>
+
+  </div>
+</div>
