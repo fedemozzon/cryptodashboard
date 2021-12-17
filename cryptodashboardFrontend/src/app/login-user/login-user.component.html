@@ -1,15 +1,16 @@
-<form (ngSubmit)="onSubmit()" [formGroup]="newCoinForm"> 
-
-    <div class="form-group">
-       <label for="userMail">Mail</label>
-       <input type="text" required formControlName="userEmail" class="form-control">
-       <label for="userPassword">Password</label>
-       <input type="text" required formControlName="userPassword" class="form-control">
-   </div>
- 
-   <div class="form-group">
-       <button class="btn btn-primary" type="submit">Login</button>
-       <a routerLink="/addUser" class="btn btn-link">Registrarme</a>    
-   </div>
-
-</form>
+<div class="container-fluid">
+    <form (ngSubmit)="onSubmit()" [formGroup]="newCoinForm"> 
+        <div class="mb-3">
+           <label for="userMail" class="form-label">Mail</label>
+           <input type="email" required formControlName="userEmail" class="form-control">
+       </div>
+       <div class="mb-3">
+        <label for="userPassword" class="form-label">Password</label>
+        <input type="password" required formControlName="userPassword" class="form-control">
+      </div>
+       <div class="mb-3">
+           <button class="btn btn-primary" type="submit">Login</button>
+           <a routerLink="/addUser" class="btn btn-link">Registrarme</a>    
+       </div>
+    </form>
+  </div>

@@ -29,7 +29,9 @@ export class LoginUserComponent implements OnInit {
     }); 
    }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    localStorage.clear()
+  }
     onSubmit(){
     var logUser=<InlineObject>{
       email:this.newCoinForm.get("userEmail")?.value ,

@@ -1,15 +1,17 @@
+<div class="container-fluid">
 <form (ngSubmit)="onSubmit()" [formGroup]="newExchangeForm"> 
-
-    <div class="form-group">
-       <label for="exchangeName">Exchange name</label>
+    <div class="mb-3">
+       <label for="exchangeName" class="form-label">Exchange name</label>
        <input type="text" required formControlName="exchangeName" class="form-control">
-       <label for="exchangeScript">URL api o script</label>
-       <input type="text" required formControlName="exchangeScript" class="form-control">
    </div>
- 
-   <div class="form-group"> 
+   <div class="mb-3">
+   <label for="exchangeScript"class="form-label">URL api o script</label>
+   <input type="text" required formControlName="exchangeScript" class="form-control">
+    </div>
+   <div class="mb-3"> 
        <button class="btn btn-primary" type="submit">Save</button>    
        <a routerLink="/coins" class="btn btn-link">Cancel</a>
    </div>
 
 </form>
+</div>
