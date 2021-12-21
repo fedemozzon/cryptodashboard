@@ -25,13 +25,14 @@
 </div>
   <div class="mb-3">
     <select [(ngModel)]="seleccionado" (change)="selectChangeHandler($event)" class="form-select" aria-label="Default select example">
-      <option value ="1"selected>Ayer</option>
-      <option value ="7">1 semana</option>
-      <option value="14">2 semanas</option>
-      <option value="30">1 Mes</option>
-      <option value="90">3 Meses</option>
-      <option value="180">6 Meses</option>
-      <option value="365">1 año</option>
+      <option value =1 >Ayer</option>
+      <option value =3 >3 días</option>
+      <option value =7 selected >1 semana</option>
+      <option value= 14>2 semanas</option>
+      <option value=30>1 Mes</option>
+      <option value=90>3 Meses</option>
+      <option value=180>6 Meses</option>
+      <option value=365>1 año</option>
     </select>
  </div>
 <table mat-table [dataSource]="results" class="mat-elevation-z8">
