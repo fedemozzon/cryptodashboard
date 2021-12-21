@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  sessionOn:boolean = localStorage.getItem('token') == null;
+  sessionOn:boolean = localStorage.getItem('token') != null;
   title = 'Crypto Dashboard';
 }

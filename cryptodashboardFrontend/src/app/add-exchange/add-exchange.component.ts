@@ -11,6 +11,8 @@ import { ExchangeService } from '../service/exchange.service';
   styleUrls: ['./add-exchange.component.scss']
 })
 export class AddExchangeComponent implements OnInit {
+  title = 'Crypto Dashboard';
+  sessionOn:boolean = localStorage.getItem('token') != null;
   newExchangeForm:FormGroup
   exchange: Exchange
   coin:Coin = {

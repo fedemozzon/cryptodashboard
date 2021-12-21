@@ -1,10 +1,13 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import * as _ from 'lodash';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CoinService } from '../service/coin.service';
 // import { ExchangeQuotationService} from '../service/exchange-quotation.service';
 import { Coin } from '../openapi/model/coin';
 import { Quotation } from '../openapi';
 import { QuotationService } from '../service/quotation.service';
+import { groupBy } from 'lodash';
+import { FormControl, FormGroup } from '@angular/forms';
 
 
 
@@ -14,8 +17,12 @@ import { QuotationService } from '../service/quotation.service';
   styleUrls: ['./coin.component.scss']
 })
 export class CoinComponent implements OnInit {
+  title = 'Crypto Dashboard';
+  sessionOn:boolean = localStorage.getItem('token') != null;
+  newCoinForm:FormGroup
   idCoin:string = ''
   coins: Coin [] = []
+  arrayForDays: any[] = [[]]
   results: Quotation [] = []
   displayedColumns: string[] = ['Date','Price','Exchange'];
   coin:Coin = {
@@ -27,46 +34,55 @@ export class CoinComponent implements OnInit {
   }
   graph: any
   graph2: any
+  daysBehind: number = 10
 
   
-  constructor(private route: ActivatedRoute,private service: CoinService, private quotationsService: QuotationService) { }
+  constructor(private route: ActivatedRoute,private service: CoinService, private quotationsService: QuotationService, private router: Router) { 
+    this.newCoinForm = new FormGroup({
+      daysToShow: new FormControl(),
+    }); 
+  }
 
   ngOnInit(): void {
-    this.idCoin = this.route.snapshot.paramMap.get("idx") as string
-    this.service.getCoin(this.idCoin).subscribe((coin) => this.coin = coin)
-    this.quotationsService.getQuotations().subscribe((quotations) => {this.results = quotations.filter((quotation)=> quotation.coinId == this.idCoin)
-          this.graph = {
+    if (localStorage.getItem('token') != null){
+      this.idCoin = this.route.snapshot.paramMap.get("idx") as string
+      this.service.getCoin(this.idCoin).subscribe((coin) => this.coin = coin)
+      this.quotationsService.getQuotations().subscribe((quotations) => {this.results = quotations.filter((quotation)=> quotation.coinId == this.idCoin)
+            this.graph = {
+          data: [
+              { x: this.results.map(function (obj:any) {return obj.dateCreation.substring(3,21) }) , y:this.results.map(function (obj:any) {return obj.price }) , type: 'scatter', mode: 'lines+points'},
+          ],
+          layout: {width: 450, height: 450, title: 'Precio por día'}
+      };
+      let to1 = new Date()
+      let today = new Date(to1)
+      today.setDate(today.getDate() +1)
+      let firstday = new Date(today.getTime() - (60 * 60 *24 * (this.daysBehind +1) * 1000)); //adding (60*60*6*24*1000) means adding six days to the firstday which results in lastday (saturday) of the week
+      let y1 = this.results.map(function (obj:any) {return obj.dateCreation as Date })
+      y1.forEach((date)=> {
+        console.log(typeof((date as unknown as String)))
+        console.log(typeof((firstday as unknown as String)))
+        console.log(typeof(today))
+        console.log((date as Date) > (firstday as Date))
+        console.log((date as Date) < (today as Date))
+      })
+      let arrayInValues = y1.filter((date)=> (date as Date) >= (firstday as Date) && (date as Date) <= (today as Date))
+      console.log(arrayInValues)
+      this.graph2 = {
         data: [
-            { x: this.results.map(function (obj:any) {return obj.dateCreation }) , y:this.results.map(function (obj:any) {return obj.price }) , type: 'scatter', mode: 'lines+points'},
+          {
+            x: this.results.map(function (obj:any) {return obj.dateCreation.substring(3,21) }),
+            y: this.results.map(function (obj:any) {return obj.price }),
+            type: 'box'
+          }
         ],
-        layout: {width: 400, height: 400, title: 'A Fancy Plot'}
+        layout: {width: 450, height: 450, title: 'Precio por día'}
     };
-    let y1 = this.results[8]
-    this.graph2 = {
-      data: [
-        {
-          x: this.results.map(function (obj:any) {return obj.dateCreation }),
-          y: this.results.map(function (obj:any) {return obj.price }),
-          type: 'box'
-        }
-      ],
-      layout: {width: 400, height: 400, title: 'A Fancy Plot'}
-  };
-    })
-  //   this.exchangeService.getQuotationForExchange(this.quotationForDay+this.coin.acronym+this.time).subscribe(response => {
-  //     this.results = response
-  //     this.results = this.results.Data.Data
-  //     console.log(this.results.map(function (obj:any) {return obj.high }))
-  //     this.graph = {
-  //       data: [
-  //           { x: this.results.map(function (obj:any) {return obj.time }) , y:this.results.map(function (obj:any) {return obj.high }) , type: 'scatter', mode: 'lines+points', marker: {color: 'red'} },
-  //       ],
-  //       layout: {width: 400, height: 400, title: 'A Fancy Plot'}
-  //   };
-  //   })
-  // }
-  // );
+      })
+    }
+    else this.router.navigateByUrl("/")
   }
+onSubmit(){}
   
 
 }

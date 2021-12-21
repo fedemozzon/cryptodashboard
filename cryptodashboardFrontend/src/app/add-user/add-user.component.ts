@@ -10,6 +10,8 @@ import { UserService } from '../service/user.service';
   styleUrls: ['./add-user.component.scss']
 })
 export class AddUserComponent implements OnInit {
+  title = 'Crypto Dashboard';
+  sessionOn:boolean = localStorage.getItem('token') != null;
   newCoinForm:FormGroup
   user:User
 

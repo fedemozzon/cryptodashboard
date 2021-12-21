@@ -11,7 +11,9 @@ import { UserService } from '../service/user.service';
   styleUrls: ['./add-coin.component.scss']
 })
 export class AddCoinComponent implements OnInit {
+  title = 'Crypto Dashboard';
   newCoinForm:FormGroup
+  sessionOn:boolean = localStorage.getItem('token') != null;
   coin:Coin
 
   constructor(private route: ActivatedRoute , private router:Router,  private service: CoinService, private userService: UserService) { 
@@ -41,22 +43,22 @@ export class AddCoinComponent implements OnInit {
     }); 
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (localStorage.getItem('token') == null) this.router.navigateByUrl("/")
+  }
   onSubmit(){
     var coin=<Coin>{
     nameCoin:this.newCoinForm.get("coinName")?.value ,
      description: this.newCoinForm.get("coinDescription")?.value,
      acronym: this.newCoinForm.get("coinAcronym")?.value,
-     linkToWikipedia:this.newCoinForm.get("coinLinkToWikipedia")?.value,
-    
+     linkToWikipedia:this.newCoinForm.get("coinLinkToWikipedia")?.value
    }
-   let id = localStorage.getItem('userId') as string
-   this.userService.getUserById(id).subscribe((user) => {
-    user.coins.push(coin)
-    console.log(user)
+   let id = localStorage.getItem('userId') as string;
+   this.service.addCoin(coin).subscribe((coinPersist)=> this.userService.getUserById(id).subscribe((user) => {
+    user.coins.push(coinPersist)
     this.userService.addCoin(id, user).subscribe((user) => console.log(user))
-   })
-   this.service.addCoin(coin).subscribe(()=> this.router.navigateByUrl("/coins"))
+   }))
+   this.router.navigateByUrl("/coins")
  }
 
  

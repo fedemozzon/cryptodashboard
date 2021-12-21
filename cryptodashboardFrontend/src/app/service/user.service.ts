@@ -31,8 +31,11 @@ export class UserService {
     getUserById(userId:string){
       return this.http.userControllerFindById(userId)
     }
+
+    deleteCoin(userId:string, newUser:User){
+      console.log(newUser)
+      console.log(userId)
+      return this.http.userControllerUpdateById(userId,newUser)
+    }
   
-    // getCoin(coin:Coin){
-    //   return this.http.coinControllerControllerFindById(Number(coin.idCoin))
-    // }
 }

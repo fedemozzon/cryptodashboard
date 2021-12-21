@@ -10,6 +10,8 @@ import { UserService } from '../service/user.service';
   styleUrls: ['./login-user.component.scss']
 })
 export class LoginUserComponent implements OnInit {
+  title = 'Crypto Dashboard';
+  sessionOn:boolean = false
   newCoinForm:FormGroup
   logUser:InlineObject
   actUser: any
@@ -31,6 +33,10 @@ export class LoginUserComponent implements OnInit {
 
   ngOnInit(): void {
     localStorage.clear()
+    this.sessionOn = localStorage.getItem('token') != null;
+  }
+  ngOnChanges(){
+    localStorage.clear()
   }
     onSubmit(){
     var logUser=<InlineObject>{
@@ -45,10 +51,11 @@ export class LoginUserComponent implements OnInit {
           this.configuration.accessToken=resp.token
         }  
         localStorage.setItem('token', resp.token as string)
+        this.service.getUsers().subscribe((resp) => {localStorage.setItem('userId', resp.filter((user)=> user.email == logUser.email)[0].idUser as string)
+        this.router.navigateByUrl("/coins")
+       })
        }
        )
-       this.service.getUsers().subscribe((resp) => localStorage.setItem('userId', resp.filter((user)=> user.email == logUser.email)[0].idUser as string))
-       this.router.navigateByUrl("/coins")
   }
 
 }
