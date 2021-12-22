@@ -15,7 +15,7 @@ import { QuotationService } from '../service/quotation.service';
   styleUrls: ['./coin.component.scss']
 })
 export class CoinComponent implements OnInit {
-  seleccionado:number = 1;
+  seleccionado:number = 2;
   title = 'Crypto Dashboard';
   sessionOn:boolean = localStorage.getItem('token') != null;
   idCoin:string = ''
