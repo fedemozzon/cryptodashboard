@@ -1,6 +1,7 @@
 # cryptodashboard
 IAW
 # IMPORTANTE
+Se necesita una versión de node superior a la 12.20, 14.15 o 16.10 por cuestiones de angular cli
 Para ejecutar el proyecto con angular:
 posicionarse en la carpeta cryptodashboardFrontend
 npm install
